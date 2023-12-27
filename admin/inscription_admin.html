@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Admin</title>
+</head>
+<body>
+    <h2>Inscription Admin</h2>
+    <form action="../PHP/inscription_traitement.php" method="post">
+        <label for="nom_admin">Nom d'admin :</label>
+        <input type="text" name="nom_admin" id="nom_admin" required><br><br>
+        
+        <label for="mot_de_passe">Mot de passe :</label>
+        <input type="password" name="mot_de_passe" id="mot_de_passe" required><br><br>
+        
+        <input type="submit" value="S'inscrire">
+    </form>
+</body>
+</html>
