@@ -1,5 +1,5 @@
 <?php
-include 'connexion.php'; // Inclure le fichier de connexion
+include 'connexion.php'; // Fichier de connexion
 
 // Récupération des données du formulaire
 $nom_admin = $_POST['nom_admin'];
