@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 
 :root{
-  --primary-color: #000106;
-  --secondary-color: #fff;
+  --primary-color: #212121;
+  --secondary-color: #edf2fc;
 }
 
 .dark-theme{
@@ -21,7 +22,9 @@ body {
 }
 
 h1, h2, p {
+  font-family: 'Protest Strike', sans-serif;
   color: var(--secondary-color);
+  letter-spacing: 0.1rem;
 }
 
 a {
@@ -54,6 +57,14 @@ img {
 
 h1 {
   text-align: center;
+  font-size: 3rem;
+}
+
+.degrade {
+  background: #CF783E;
+  background: linear-gradient(to right, #CF783E 0%, #CF1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .presentation-photo {
