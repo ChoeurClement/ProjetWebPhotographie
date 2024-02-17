@@ -9,8 +9,6 @@
   $stmt->execute(); 
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-  // Vérification des résultats
-  var_dump($result); // Pour déboguer
 ?>
 
 <!DOCTYPE html>
