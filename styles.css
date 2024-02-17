@@ -146,6 +146,12 @@ footer a{
   margin-top: 1rem;
 }
 
+.album{
+  background-color: var(--accent);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .form-group {
   margin-bottom: 15px;
 }

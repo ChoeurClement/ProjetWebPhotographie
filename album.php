@@ -1,9 +1,25 @@
+<?php
+  include 'PHP/connexion.php';
+
+  // Connexion à la base de données
+  $conn = connect_to_db();
+
+  // Requête pour récupérer les catégories d'albums
+  $stmt = $conn->prepare("SELECT DISTINCT categorie_image FROM images");
+  $stmt->execute(); 
+  $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  // Vérification des résultats
+  var_dump($result); // Pour déboguer
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>À propos</title>
+    <title>Albums Photo</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Accueil du site" />
     <meta name="author" content="Clément Choeur" />
     <meta name="copyright" content="" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
@@ -31,19 +47,32 @@
     </header>
     <hr>
     <main>
-        <h1>À propos</h1>
-        <p class="center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, modi? Laudantium, totam. Necessitatibus, nesciunt odit sit sint, expedita minus ratione qui molestiae fuga architecto ut modi hic nam exercitationem iste?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium earum dolore quidem natus est unde quo nobis odit. Eaque fuga maxime obcaecati et possimus animi hic rem quaerat facere!
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto ab expedita quaerat ullam minus natus perspiciatis vitae maxime cupiditate, eligendi voluptatibus accusamus quidem doloremque ad nisi, a eveniet. Facilis, ullam?
-        </p>
-        <p class="right"></p>
+      <section class="presentation">
+        <h1>Albums Photo</h1>
+        <div id="album-container">
+          <?php
+            foreach($result as $row) {
+              echo "<div class='album' onclick='showPhotos(\"" . htmlspecialchars($row["categorie_image"], ENT_QUOTES) . "\")'>";
+              echo "<h3>" . htmlspecialchars($row["categorie_image"], ENT_QUOTES) . "</h3>";
+              echo "<p>Insérer l'image de l'album</p>";
+              echo "</div>";
+            }
+          ?>
+        </div>
+      </section>
     </main>
+
+    <div id="photos-container" style="display:none;">
+        <!-- Affichage Photos -->
+    </div>
     <hr>
     <footer>
       <p>© - Savinien Lepoivre</p>
-      <a href="#">Contact</a>
     </footer>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
+
+<?php
+  $conn = null;
+?>
