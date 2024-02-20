@@ -47,12 +47,12 @@
     <main>
       <section class="presentation">
         <h1>Albums Photo</h1>
+        <input type="text" id="searchBar" placeholder="Rechercher un album..." onkeyup="searchAlbum()">
         <div id="album-container">
           <?php
             foreach($result as $row) {
               echo "<div class='album' onclick='showPhotos(\"" . htmlspecialchars($row["categorie_image"], ENT_QUOTES) . "\")'>";
               echo "<h3>" . htmlspecialchars($row["categorie_image"], ENT_QUOTES) . "</h3>";
-              echo "<p>Insérer l'image de l'album</p>";
               echo "</div>";
             }
           ?>
@@ -61,7 +61,14 @@
     </main>
 
     <div id="photos-container" style="display:none;">
-        <!-- Affichage Photos -->
+      <button id="backButton">Retour</button>
+      <div id="photo-content">
+        <!-- Les photos seront chargées ici -->
+      </div>
+    </div>
+    <div id="fullscreen-container" style="display:none;">
+      <span id="close-fullscreen">&#10005;</span>
+      <img id="fullscreen-img" src="" alt="Image en plein écran">
     </div>
     <hr>
     <footer>

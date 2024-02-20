@@ -12,11 +12,11 @@ if (isset($_GET['album'])) {
 
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach($result as $row) {
+    foreach ($result as $row) {
         echo "<div class='photo'>";
-        echo "<img src='images/" . htmlspecialchars($row["chemin_image"], ENT_QUOTES) . "' alt='" . htmlspecialchars($row["description_image"], ENT_QUOTES) . "'>";
+        echo "<img src='images/" . htmlspecialchars($row["chemin_image"], ENT_QUOTES) . "' alt='" . htmlspecialchars($row["description_image"], ENT_QUOTES) . "' onclick='openFullscreen(\"images/" . htmlspecialchars($row["chemin_image"], ENT_QUOTES) . "\")'>";
         echo "</div>";
-    }
+    }    
 
     $conn = null;
 } else {
