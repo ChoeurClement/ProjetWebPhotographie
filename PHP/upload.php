@@ -76,6 +76,8 @@ if ($uploadOk == 0) {
         
             // Fermeture de la connexion
             $conn = null;
+            header("Location: ../admin/dashboard.php");
+            exit();
         }        
     } else {
         echo "Une erreur s'est produite lors du téléchargement du fichier.";
