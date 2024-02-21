@@ -1,5 +1,5 @@
 <?php
-include 'connexion.php'; // Fichier de connexion
+include 'connexion.php';
 
 // Récupération des données du formulaire
 $nom_admin = $_POST['nom_admin'];
@@ -26,6 +26,9 @@ if ($conn) {
 
     // Fermeture de la connexion
     $conn = null;
+
+    header("Location: ../admin/connexion.html");
+    exit();
 } else {
     echo "Une erreur est survenue lors de la connexion à la base de données.";
 }
