@@ -73,6 +73,7 @@
     <hr>
     <footer>
       <p>© - Savinien Lepoivre</p>
+      <a href="contact.html">Contact</a>
     </footer>
     <script src="script.js"></script>
 </body>
