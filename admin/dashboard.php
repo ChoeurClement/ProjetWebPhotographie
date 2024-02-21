@@ -23,7 +23,7 @@
         echo "Erreur : Nom d'administrateur non trouvé.";
     }
     ?>
-
+    <a href="../PHP/deconnexion.php">Déconnexion</a>
     <h1>Dashboard Admin</h1>
     <form action="../PHP/upload.php" method="post" enctype="multipart/form-data">
         <input type="file" name="image" accept="image/*">
@@ -31,5 +31,6 @@
         <textarea name="description" placeholder="Description de l'image"></textarea>
         <input type="submit" value="Envoyer">
     </form>
+    <script src="script.js"></script>
 </body>
 </html>
