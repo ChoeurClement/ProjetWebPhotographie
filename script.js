@@ -80,6 +80,24 @@ function showPhotos(albumName) {
   xhr.send();
 }
 
+function filterImages() {
+  var searchBar = document.getElementById("searchBar");
+  var filterText = searchBar.value.toUpperCase();
+  var images = document.getElementsByClassName("image");
+
+  for (var i = 0; i < images.length; i++) {
+      var image = images[i];
+      var albumText = image.getAttribute("data-album").toUpperCase();
+      var showByAlbum = albumText.indexOf(filterText) > -1;
+
+      if (showByAlbum) {
+          image.style.display = "";
+      } else {
+          image.style.display = "none";
+      }
+  }
+}
+
 function searchAlbum() {
   var input, filter, container, albums, title, i, txtValue;
   input = document.getElementById("searchBar");

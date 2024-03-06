@@ -147,10 +147,36 @@ footer a{
   background-color: var(--text05opa);
 }
 
+.card-stat {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 2px solid var(--accent);
+  border-radius: 1rem;
+  background-color: var(--text05opa);
+  width: 40%;
+  text-align: center;
+}
+
+.stat{
+  font-size: 2rem;
+  color: var(--accent);
+}
+
 .card img{
   border: 2px solid var(--primary);
   margin-top: 1rem;
 }
+
+.card hr{
+  margin-top: 1rem;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 
 .album{
   background: linear-gradient(135deg, var(--secondary), var(--accent));
