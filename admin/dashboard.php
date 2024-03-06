@@ -68,6 +68,31 @@
                 <button type="submit" class="btnEnvoyer">Ajouter</button>
             </form>
         </div>
+        <div class="card">
+            <?php
+                include '../PHP/connexion.php';
+                $conn = connect_to_db();
+
+                if ($conn) {
+                    try {
+                        $requete = "SELECT * FROM images";
+                        $resultat = $conn->query($requete);
+                        $images = $resultat->fetchAll(PDO::FETCH_ASSOC);
+                    } catch(PDOException $e) {
+                        echo "Erreur lors de la récupération des images : " . $e->getMessage();
+                        $images = [];
+                    }
+                
+                    $conn = null;
+                }  
+                foreach ($images as $image) : 
+            ?>
+                <div id="image-<?php echo $image['image_id']; ?>" class="image">
+                    <img src="../images/<?php echo htmlspecialchars($image['chemin_image']); ?>" alt="<?php echo htmlspecialchars($image['description_image']); ?>">
+                    <button onclick="supprimerImage('<?php echo $image['image_id']; ?>')">Supprimer</button>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </main>
     <hr>
     <footer>

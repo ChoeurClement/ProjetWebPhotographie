@@ -98,6 +98,26 @@ function searchAlbum() {
   }
 }
 
+function supprimerImage(idImage) {
+  if (confirm("Êtes-vous sûr de vouloir supprimer cette image ?")) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '../PHP/suppresion_images.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.onload = function() {
+        if (this.status == 200) {
+          console.log(this.responseText);
+          var imageElement = document.getElementById('image-' + idImage);
+          if (imageElement) {
+              imageElement.parentNode.removeChild(imageElement);
+          }
+        } else {
+          console.error('Erreur lors de la suppression de l’image');
+        }
+      };
+      xhr.send('id=' + idImage);
+  }
+}
+
 // Ouverture en plein écran
 function openFullscreen(src) {
   document.getElementById("fullscreen-img").src = src;
